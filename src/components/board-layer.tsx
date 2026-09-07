@@ -38,12 +38,12 @@ export function BoardLayer() {
   // Pieces read light on dark sections and dark on light sections.
   const pieceColor = useTransform(
     p,
-    [0, 0.16, 0.26, 0.72, 0.82, 1],
+    [0, 0.16, 0.28, 0.86, 0.92, 1],
     ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
   );
   const lineColor = useTransform(
     p,
-    [0, 0.16, 0.26, 0.72, 0.82, 1],
+    [0, 0.16, 0.28, 0.86, 0.92, 1],
     ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
   );
 
@@ -101,7 +101,7 @@ export function MorphBackground() {
   const p = useSpring(scrollYProgress, { stiffness: 80, damping: 30, mass: 0.4 });
   const background = useTransform(
     p,
-    [0, 0.12, 0.22, 0.34, 0.7, 0.8, 1],
+    [0, 0.12, 0.22, 0.32, 0.84, 0.9, 1],
     ["#080808", "#101010", "#8C8C8C", "#F4F3F1", "#F4F3F1", "#141414", "#050505"],
   );
   return <motion.div className="fixed inset-0 -z-10" style={{ background }} aria-hidden="true" />;
