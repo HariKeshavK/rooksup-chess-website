@@ -154,7 +154,7 @@ function Hero() {
 function Philosophy() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const color = useTransform(scrollYProgress, [0.15, 0.4, 0.6], ["#F4F3F1", "#F4F3F1", "#111111"]);
+  const color = useTransform(scrollYProgress, [0.15, 0.4, 0.6], ["#F4EFE6", "#F4EFE6", "#160F0A"]);
   const x1 = useTransform(scrollYProgress, [0, 1], ["-8%", "6%"]);
   const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-8%"]);
 
@@ -628,7 +628,7 @@ function ContactSection() {
           {/* Right Column: Zoho Form with ROOKS UP luxury aesthetics */}
           <div className="lg:col-span-7">
             <Reveal delay={0.12}>
-              <div className="relative border border-paper/15 bg-[#111111]/90 p-8 backdrop-blur-md md:p-12">
+              <div className="relative border border-paper/15 bg-[#160F0A]/95 p-8 backdrop-blur-md md:p-12">
                 {/* Hidden iframe for seamless Zoho form submission */}
                 <iframe
                   name="zoho_submit_iframe"
@@ -772,13 +772,13 @@ function ContactSection() {
                             <select
                               value={dobDay}
                               onChange={(e) => setDobDay(e.target.value)}
-                              className="w-full appearance-none border border-paper/20 bg-[#141414] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
+                              className="w-full appearance-none border border-paper/20 bg-[#160F0A] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
                             >
-                              <option value="" disabled className="bg-[#141414] text-paper/40">
+                              <option value="" disabled className="bg-[#160F0A] text-paper/40">
                                 Day
                               </option>
                               {daysList.map((d) => (
-                                <option key={d} value={d} className="bg-[#141414] text-paper">
+                                <option key={d} value={d} className="bg-[#160F0A] text-paper">
                                   {d}
                                 </option>
                               ))}
@@ -791,16 +791,16 @@ function ContactSection() {
                             <select
                               value={dobMonth}
                               onChange={(e) => setDobMonth(e.target.value)}
-                              className="w-full appearance-none border border-paper/20 bg-[#141414] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
+                              className="w-full appearance-none border border-paper/20 bg-[#160F0A] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
                             >
-                              <option value="" disabled className="bg-[#141414] text-paper/40">
+                              <option value="" disabled className="bg-[#160F0A] text-paper/40">
                                 Month
                               </option>
                               {monthsList.map((m) => (
                                 <option
                                   key={m.val}
                                   value={m.val}
-                                  className="bg-[#141414] text-paper"
+                                  className="bg-[#160F0A] text-paper"
                                 >
                                   {m.val} - {m.label}
                                 </option>
@@ -814,13 +814,13 @@ function ContactSection() {
                             <select
                               value={dobYear}
                               onChange={(e) => setDobYear(e.target.value)}
-                              className="w-full appearance-none border border-paper/20 bg-[#141414] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
+                              className="w-full appearance-none border border-paper/20 bg-[#160F0A] px-3.5 py-3 pr-8 text-xs uppercase tracking-wider text-paper focus:border-paper focus:outline-none cursor-pointer"
                             >
-                              <option value="" disabled className="bg-[#141414] text-paper/40">
+                              <option value="" disabled className="bg-[#160F0A] text-paper/40">
                                 Year
                               </option>
                               {yearsList.map((y) => (
-                                <option key={y} value={y} className="bg-[#141414] text-paper">
+                                <option key={y} value={y} className="bg-[#160F0A] text-paper">
                                   {y}
                                 </option>
                               ))}
