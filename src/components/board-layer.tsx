@@ -3,9 +3,9 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { BishopPiece, KnightPiece, PawnPiece, RookPiece } from "./chess-pieces";
 
 /**
- * Persistent, scroll-linked chessboard + piece system.
+ * 2D Scroll-linked chessboard + piece system with luxury Dark Brown & Crème aesthetic.
  * Every piece position is derived from a single spring-smoothed scroll value,
- * so the whole page reads as one continuous game.
+ * giving a fluid, cinematic journey.
  */
 export function BoardLayer() {
   const { scrollYProgress } = useScroll();
@@ -15,7 +15,7 @@ export function BoardLayer() {
   const gridOpacity = useTransform(
     p,
     [0, 0.06, 0.2, 0.45, 0.75, 0.92, 1],
-    [0.22, 0.6, 0.3, 0.14, 0.18, 0.45, 0.08],
+    [0.24, 0.55, 0.28, 0.14, 0.18, 0.45, 0.1],
   );
   const gridScale = useTransform(p, [0, 0.5, 1], [1.25, 1, 1.6]);
   const gridRotate = useTransform(p, [0, 1], [14, -6]);
@@ -51,16 +51,16 @@ export function BoardLayer() {
   const bishopY = useTransform(p, [0, 0.5, 1], ["86vh", "40vh", "62vh"]);
   const bishopOpacity = useTransform(p, [0, 0.25, 0.55, 0.85], [0, 0.3, 0.4, 0]);
 
-  // Pieces read light on dark sections and dark on light sections.
+  // Pieces & Grid color flip between Crème (#F4EFE6) and Deep Dark Brown (#160F0A)
   const pieceColor = useTransform(
     p,
     [0, 0.16, 0.28, 0.86, 0.92, 1],
-    ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
+    ["#F4EFE6", "#F4EFE6", "#160F0A", "#160F0A", "#F4EFE6", "#F4EFE6"],
   );
   const lineColor = useTransform(
     p,
     [0, 0.16, 0.28, 0.86, 0.92, 1],
-    ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
+    ["#F4EFE6", "#F4EFE6", "#160F0A", "#160F0A", "#F4EFE6", "#F4EFE6"],
   );
 
   return (
@@ -110,7 +110,7 @@ export function BoardLayer() {
                 width="100"
                 height="100"
                 fill="currentColor"
-                opacity="0.06"
+                opacity="0.07"
               />
             ) : null,
           ),
@@ -119,7 +119,13 @@ export function BoardLayer() {
 
       <motion.div
         className="absolute"
-        style={{ x: rookX, y: rookY, scale: rookScale, opacity: rookOpacity, color: pieceColor }}
+        style={{
+          x: rookX,
+          y: rookY,
+          scale: rookScale,
+          opacity: rookOpacity,
+          color: pieceColor,
+        }}
       >
         <RookPiece size={130} />
       </motion.div>
@@ -145,14 +151,17 @@ export function BoardLayer() {
   );
 }
 
-/** Full-page morphing background: black -> grey -> white -> black. */
+/**
+ * Full-page morphing background: Deep Dark Espresso Brown -> Rich Dark Chocolate -> Crème -> Deep Dark Espresso Brown.
+ * Avoids light brown completely.
+ */
 export function MorphBackground() {
   const { scrollYProgress } = useScroll();
   const p = useSpring(scrollYProgress, { stiffness: 80, damping: 30, mass: 0.4 });
   const background = useTransform(
     p,
     [0, 0.12, 0.22, 0.32, 0.84, 0.9, 1],
-    ["#080808", "#101010", "#8C8C8C", "#F4F3F1", "#F4F3F1", "#141414", "#050505"],
+    ["#0C0806", "#160F0A", "#261911", "#F4EFE6", "#F4EFE6", "#1A110B", "#0C0806"],
   );
   return <motion.div className="fixed inset-0 -z-10" style={{ background }} aria-hidden="true" />;
 }
