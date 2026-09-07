@@ -51,16 +51,16 @@ export function BoardLayer() {
   const bishopY = useTransform(p, [0, 0.5, 1], ["86vh", "40vh", "62vh"]);
   const bishopOpacity = useTransform(p, [0, 0.25, 0.55, 0.85], [0, 0.3, 0.4, 0]);
 
-  // Pieces & Grid color flip between Crème (#F4EFE6) and Deep Dark Brown (#160F0A)
+  // Pieces & Grid color flip between Paper (#F4F3F1) and Deep Obsidian (#111111)
   const pieceColor = useTransform(
     p,
     [0, 0.16, 0.28, 0.86, 0.92, 1],
-    ["#F4EFE6", "#F4EFE6", "#160F0A", "#160F0A", "#F4EFE6", "#F4EFE6"],
+    ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
   );
   const lineColor = useTransform(
     p,
     [0, 0.16, 0.28, 0.86, 0.92, 1],
-    ["#F4EFE6", "#F4EFE6", "#160F0A", "#160F0A", "#F4EFE6", "#F4EFE6"],
+    ["#F4F3F1", "#F4F3F1", "#111111", "#111111", "#F4F3F1", "#F4F3F1"],
   );
 
   return (
@@ -152,8 +152,7 @@ export function BoardLayer() {
 }
 
 /**
- * Full-page morphing background: Deep Dark Espresso Brown -> Rich Dark Chocolate -> Crème -> Deep Dark Espresso Brown.
- * Avoids light brown completely.
+ * Full-page morphing background: Deep Obsidian -> Charcoal -> Steel -> Paper -> Charcoal -> Obsidian.
  */
 export function MorphBackground() {
   const { scrollYProgress } = useScroll();
@@ -161,7 +160,7 @@ export function MorphBackground() {
   const background = useTransform(
     p,
     [0, 0.12, 0.22, 0.32, 0.84, 0.9, 1],
-    ["#0C0806", "#160F0A", "#261911", "#F4EFE6", "#F4EFE6", "#1A110B", "#0C0806"],
+    ["#080808", "#101010", "#8C8C8C", "#F4F3F1", "#F4F3F1", "#141414", "#050505"],
   );
   return <motion.div className="fixed inset-0 -z-10" style={{ background }} aria-hidden="true" />;
 }

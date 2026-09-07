@@ -5,8 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * ROOKS UP Design System: Dark Brown & Crème Luxury Aesthetic
- * Deep espresso dark brown (#160f0a) paired with warm refined crème (#f4efe6).
+ * ROOKS UP Design System: Pure Black, Charcoal & Off-White Luxury Aesthetic
  */
 
 @theme inline {
@@ -47,14 +46,14 @@
 
 :root {
   --radius: 0rem;
-  --ink: #160f0a;
-  --paper: #f4efe6;
-  --steel: #8e7f74;
+  --ink: #111111;
+  --paper: #f4f3f1;
+  --steel: #8c8c8c;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
-  --border: rgba(244, 239, 230, 0.15);
+  --border: rgba(244, 243, 241, 0.15);
 }
 
 @layer base {
@@ -71,7 +70,7 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #0c0806;
+    background-color: #080808;
   }
 
   h1,

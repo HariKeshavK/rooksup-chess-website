@@ -26,9 +26,9 @@ export const Route = createFileRoute("/privacy-policy")({
 
 function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[#0C0806] text-[#F4EFE6]">
+    <div className="min-h-screen bg-[#080808] text-[#F4F3F1]">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-paper/10 bg-[#0C0806]/90 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-paper/10 bg-[#080808]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5 md:px-12">
           <Link
             to="/"
