@@ -1,11 +1,10 @@
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
 const links = [
-  { label: "Academy", href: "#academy" },
-  { label: "Coaches", href: "#coaches" },
-  { label: "Programs", href: "#programs" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Academy", href: "/#academy" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Method", href: "/#method" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteNav() {
@@ -36,7 +35,7 @@ export function SiteNav() {
       style={{ color, borderColor: border }}
     >
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-12">
-        <a href="#top" className="font-display text-lg font-black uppercase tracking-[0.42em]">
+        <a href="/#top" className="font-display text-lg font-black uppercase tracking-[0.42em]">
           Rooks Up
         </a>
         <ul className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.28em] md:flex">
@@ -52,13 +51,13 @@ export function SiteNav() {
           ))}
         </ul>
         <motion.a
-          href="#contact"
+          href="/#contact"
           className="border px-5 py-2.5 text-[11px] uppercase tracking-[0.28em]"
           style={{ borderColor: "currentColor" }}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
         >
-          Start Learning
+          Contact Us
         </motion.a>
       </nav>
     </motion.header>
