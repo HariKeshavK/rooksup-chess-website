@@ -317,7 +317,7 @@ function Method() {
         <div className="mx-auto w-full max-w-[1500px] px-6 md:px-12">
           <p className="eyebrow text-ink/50">The Rooks Up Method</p>
 
-          <div className="relative mt-24">
+          <div className="relative mt-40">
             <motion.div style={{ x: rookX, y: rookHop }} className="absolute -top-28 left-0 text-ink">
               <RookPiece size={92} />
             </motion.div>

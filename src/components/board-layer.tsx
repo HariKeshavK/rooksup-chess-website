@@ -12,7 +12,7 @@ export function BoardLayer() {
   const p = useSpring(scrollYProgress, { stiffness: 90, damping: 26, mass: 0.4 });
 
   // Board grid: appears in the hero, breathes, fades out, returns for the finale.
-  const gridOpacity = useTransform(p, [0, 0.06, 0.2, 0.45, 0.75, 0.92, 1], [0, 0.5, 0.28, 0.12, 0.16, 0.4, 0.05]);
+  const gridOpacity = useTransform(p, [0, 0.06, 0.2, 0.45, 0.75, 0.92, 1], [0.22, 0.6, 0.3, 0.14, 0.18, 0.45, 0.08]);
   const gridScale = useTransform(p, [0, 0.5, 1], [1.25, 1, 1.6]);
   const gridRotate = useTransform(p, [0, 1], [14, -6]);
   const gridY = useTransform(p, [0, 1], ["6%", "-10%"]);
@@ -21,7 +21,7 @@ export function BoardLayer() {
   const rookX = useTransform(p, [0, 0.14, 0.3, 0.46, 0.62, 0.8, 1], ["6vw", "24vw", "62vw", "18vw", "70vw", "34vw", "44vw"]);
   const rookY = useTransform(p, [0, 0.14, 0.3, 0.46, 0.62, 0.8, 1], ["52vh", "26vh", "62vh", "18vh", "48vh", "72vh", "30vh"]);
   const rookScale = useTransform(p, [0, 0.3, 0.62, 1], [1.35, 0.85, 1.1, 1.7]);
-  const rookOpacity = useTransform(p, [0, 0.05, 0.34, 0.4, 0.55, 0.86, 1], [0, 1, 1, 0.16, 1, 1, 0.9]);
+  const rookOpacity = useTransform(p, [0, 0.05, 0.34, 0.4, 0.55, 0.86, 1], [0.5, 1, 1, 0.16, 1, 1, 0.9]);
 
   const pawnX = useTransform(p, [0, 0.35, 0.7, 1], ["82vw", "48vw", "12vw", "68vw"]);
   const pawnY = useTransform(p, [0, 0.35, 0.7, 1], ["78vh", "22vh", "66vh", "16vh"]);
