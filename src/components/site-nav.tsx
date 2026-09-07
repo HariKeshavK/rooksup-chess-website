@@ -42,7 +42,10 @@ export function SiteNav() {
         <ul className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.28em] md:flex">
           {links.map((l) => (
             <li key={l.label}>
-              <a href={l.href} className="opacity-70 transition-opacity duration-300 hover:opacity-100">
+              <a
+                href={l.href}
+                className="opacity-70 transition-opacity duration-300 hover:opacity-100"
+              >
                 {l.label}
               </a>
             </li>
