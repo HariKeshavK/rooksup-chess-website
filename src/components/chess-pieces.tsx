@@ -74,10 +74,7 @@ export function BishopPiece({ className, size = 90 }: PieceProps) {
       className={className}
       style={{ filter: shadow }}
     >
-      <path
-        d="M50 8c10 12 20 22 20 34 0 12-9 20-20 20s-20-8-20-20C30 30 40 20 50 8Z"
-        fill="currentColor"
-      />
+      <path d="M50 8c10 12 20 22 20 34 0 12-9 20-20 20s-20-8-20-20C30 30 40 20 50 8Z" fill="currentColor" />
       <path d="M36 66h28l6 16H30l6-16Z" fill="currentColor" />
       <path d="M22 85h56v9H22z" fill="currentColor" />
     </svg>
