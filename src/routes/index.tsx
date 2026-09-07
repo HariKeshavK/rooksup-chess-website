@@ -7,7 +7,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { CheckCircle2, Loader2, Mail, Phone, ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { BoardLayer, MorphBackground } from "@/components/board-layer";
@@ -407,8 +407,14 @@ function Method() {
   );
 }
 
-// Date of Birth options
-const daysList = Array.from({ length: 31 }, (_, i) => String(i + 1).padStart(2, "0"));
+function getDaysInMonth(month: string, year: string): number {
+  if (!month) return 31;
+  const m = parseInt(month, 10);
+  // Default to 2024 (leap year) if year not chosen yet so 29 Feb is initially available
+  const y = year ? parseInt(year, 10) : 2024;
+  return new Date(y, m, 0).getDate();
+}
+
 const monthsList = [
   { val: "01", label: "Jan" },
   { val: "02", label: "Feb" },
@@ -433,6 +439,10 @@ function calculateAgeFromDob(day: string, month: string, year: string): number |
   const y = parseInt(year, 10);
   const birthDate = new Date(y, m, d);
   if (isNaN(birthDate.getTime())) return null;
+  // Strictly ensure date didn't roll over (e.g. Feb 31 -> Mar 3)
+  if (birthDate.getFullYear() !== y || birthDate.getMonth() !== m || birthDate.getDate() !== d) {
+    return null;
+  }
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
   const monthDiff = today.getMonth() - birthDate.getMonth();
@@ -455,6 +465,17 @@ function ContactSection() {
   const [dobDay, setDobDay] = useState("");
   const [dobMonth, setDobMonth] = useState("");
   const [dobYear, setDobYear] = useState("");
+
+  // Dynamic Days calculation based on selected month & year (e.g., Feb has 28 or 29, April has 30)
+  const maxDays = getDaysInMonth(dobMonth, dobYear);
+  const daysList = Array.from({ length: maxDays }, (_, i) => String(i + 1).padStart(2, "0"));
+
+  // Reset or adjust day if currently selected day exceeds max days for the new month/year
+  useEffect(() => {
+    if (dobDay && parseInt(dobDay, 10) > maxDays) {
+      setDobDay("");
+    }
+  }, [dobMonth, dobYear, maxDays, dobDay]);
 
   // FIDE Rating State
   const [ratingType, setRatingType] = useState<"unrated" | "rated">("unrated");
@@ -761,7 +782,7 @@ function ContactSection() {
                           </label>
                           {calculatedAge !== null && (
                             <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-paper bg-paper/10 border border-paper/20 px-2.5 py-0.5">
-                              Calculated Age: {calculatedAge} {calculatedAge === 1 ? "yr" : "yrs"}
+                              Age: {calculatedAge} {calculatedAge === 1 ? "yr" : "yrs"}
                             </span>
                           )}
                         </div>
